@@ -1,0 +1,99 @@
+---
+dockitems_remove:
+  - Safari
+  - Launchpad
+  - TV
+  - Podcasts
+  - 'App Store'
+  - Messages
+  - Mail
+  - Maps
+  - Photos
+  - FaceTime
+  - Calendar
+  - Contacts
+  - Music
+  - Keynote
+  - Numbers
+  - Pages
+  - 'System Preferences'
+
+dockitems_persist:
+  - name: "Firefox"
+    path: "/Applications/Firefox.app"
+    pos: 1
+  - name: "Telegram"
+    path: "/Applications/Telegram.app"
+    pos: 4
+  - name: "KeePassXC"
+    path: "/Applications/KeePassXC.app"
+    pos: 5
+
+homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  - git
+  - httpie
+  - iperf
+  - sqlite
+  - ssh-copy-id
+  - starship
+  - fish
+  - asdf
+  - azure-cli
+  # PHP compilation related dependencies
+  - autoconf
+  - automake
+  - bison
+  - freetype
+  - gd
+  - gettext
+  - icu4c
+  - krb5
+  - libedit
+  - libiconv
+  - libjpeg
+  - libpng
+  - libxml2
+  - libzip
+  - pkg-config
+  - re2c
+  - zlib
+  - gmp
+  - libsodium
+  - imagemagick
+  - curl
+  - oniguruma
+  # Fix Rust WASM compilation on M1 mac
+  - binaryen
+  - postgresql@14
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+  - homebrew/cask-fonts
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - docker
+  - firefox
+  - nextcloud
+  - keepassxc
+  - telegram
+  - mullvadvpn
+  - visual-studio-code
+  # try to fix issues with running dockutil on latest macOS (python 2.7 no longer exists)
+  - hpedrorodrigues/tools/dockutil
+  - font-fira-code-nerd-font
+
+
+dotfiles_repo: "https://github.com/Pinqvin/dotfiles.git"
+# Don't want to override the local repo with Ansible cloned one
+dotfiles_repo_local_destination: "~/Documents/dotfiles"
+dotfiles_repo_version: main
+
+dotfiles_files:
+  - .osx
+  - .config
+  - .default-npm-packages
+
+osx_script: "~/.osx --no-restart"

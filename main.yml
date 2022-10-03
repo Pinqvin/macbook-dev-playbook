@@ -1,0 +1,15 @@
+---
+- hosts: all
+
+  vars_files:
+    - default.config.yml
+
+  roles:
+    - elliotweiser.osx-command-line-tools
+    - geerlingguy.mac.homebrew
+    - geerlingguy.dotfiles
+    - geerlingguy.mac.dock
+
+  tasks:
+    - import_tasks: tasks/osx.yml
+    - import_tasks: tasks/terminal.yml

@@ -1,0 +1,28 @@
+---
+- name: Get current Terminal profile.
+  ansible.builtin.command: defaults read com.apple.terminal 'Startup Window Settings'
+  register: terminal_theme
+  changed_when: false
+  check_mode: false
+
+- name: Set default shell to fish
+  ansible.builtin.command: defaults write com.apple.terminal Shell -string /opt/homebrew/bin/fish
+  changed_when: false
+
+- name: Ensure custom Terminal profile is added.
+  copy:
+    src: files/terminal/Tomorrow Night.terminal
+    dest: /tmp/Tomorrow Night.terminal
+  changed_when: false
+  when: "'Tomorrow Night' not in terminal_theme.stdout"
+
+- name: Ensure custom Terminal profile is added.
+  ansible.builtin.command: open '/tmp/Tomorrow Night.terminal'
+  changed_when: false
+  when: "'Tomorrow Night' not in terminal_theme.stdout"
+
+# TODO: This doesn't work in Yosemite. Consider a different solution?
+- name: Ensure custom Terminal profile is set as default.
+  ansible.builtin.command: defaults write com.apple.terminal 'Startup Window Settings' -string "Tomorrow Night"
+  changed_when: false
+  when: "'Tomorrow Night' not in terminal_theme.stdout"
