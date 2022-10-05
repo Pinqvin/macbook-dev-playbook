@@ -40,6 +40,8 @@ homebrew_installed_packages:
   - fish
   - asdf
   - azure-cli
+  - postgresql@14
+  - terraform
   # PHP compilation related dependencies
   - autoconf
   - automake
@@ -65,7 +67,6 @@ homebrew_installed_packages:
   - oniguruma
   # Fix Rust WASM compilation on M1 mac
   - binaryen
-  - postgresql@14
 
 homebrew_taps:
   - homebrew/core
