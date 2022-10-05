@@ -82,8 +82,6 @@ homebrew_cask_apps:
   - telegram
   - mullvadvpn
   - visual-studio-code
-  # try to fix issues with running dockutil on latest macOS (python 2.7 no longer exists)
-  - hpedrorodrigues/tools/dockutil
   - font-fira-code-nerd-font
 
 
