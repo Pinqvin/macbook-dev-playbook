@@ -83,6 +83,7 @@ homebrew_cask_apps:
   - mullvadvpn
   - visual-studio-code
   - font-fira-code-nerd-font
+  - insomnia
 
 
 dotfiles_repo: "https://github.com/Pinqvin/dotfiles.git"
